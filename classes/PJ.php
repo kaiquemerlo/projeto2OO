@@ -1,42 +1,20 @@
-<?php 
+<?php
 
-class PJ extends Clientes implements PJInterface{
+require_once __DIR__ . "/Clientes.php";
+require_once __DIR__ . "/PJInterface.php";
 
-	private $cnpj;
-	private $importancia;
-	private $enderecoCobranca;
+class PJ extends Clientes implements PJInterface 
+{
+    private $cnpj;
 
-	public function setCnpj($cnpj){
-		$this->cnpj = $cnpj;
-		return $this;
-	}
+    public function setCnpj($cnpj) 
+    {
+        $this->cnpj = $cnpj;
+        return $this;
+    }
 
-	public function getCnpj(){
-		return $this->cnpj;
-		echo $this->cnpj;
-	}
-
-	public function setImportancia($importancia){
-		$this->importancia = $importancia;
-		return $this;
-	}
-
-
-	public function getImportancia(){
-		return $this->importancia;
-	}
-
-	public function setEnderecoCobranca($enderecoCobranca){
-		$this->enderecoCobranca = $enderecoCobranca;
-		return $this;
-	}
-
-	public function getEnderecoCobranca(){
-		return $this->enderecoCobranca;
-	}
-
+    public function getCnpj() 
+    {
+        return $this->cnpj;
+    }
 }
-
-
-
- ?>

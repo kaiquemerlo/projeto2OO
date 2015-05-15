@@ -32,14 +32,13 @@ $layout =<<<EOF
 		<tbody>
 EOF;
 	
-	if(isset($ordenation)){
+	if($ordenation){
 		switch ($ordenation){
 			case 'DESC':
-				krsort($dados);
-			break;
-			case 'ASC':
-				ksort($dados);
-			break;
+                            krsort($dados);
+                            break;
+                        default:
+                            ksort($dados);
 		}
 	}
 			foreach($dados as $d){
@@ -66,7 +65,7 @@ EOF;
 
 echo $layout;
 
-if(isset($cpf)){
+if($cpf){
 
 	$layout_details =<<<EOF
 		<table class="table table-striped table-bordered" style="width:600px; margin:10px auto;">

@@ -1,9 +1,6 @@
 <?php 
 
-interface PJInterface{
-		public function setCnpj($cnpj);
+interface PJInterface
+{
+    public function setCnpj($cnpj);
 }
-
-
-
- ?>
