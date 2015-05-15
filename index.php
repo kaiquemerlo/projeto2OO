@@ -9,9 +9,11 @@
 <?php 
 require_once'classes/InterfaceClienteImportancia.php';
 require_once'classes/InterfaceEnderecoCobranca.php';
-require_once'classes/Clientes.class.php';
-require_once'classes/PJ.class.php';
-require_once'classes/PF.class.php';
+require_once'classes/PJInterface.php';
+require_once'classes/PFInterface.php';
+require_once'classes/Clientes.php';
+require_once'classes/PJ.php';
+require_once'classes/PF.php';
 
 require_once'functions/functions.php';
 $c1  = new PF();

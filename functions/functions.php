@@ -1,15 +1,11 @@
 <?php 
 
 function makeTable($dados){
-require_once'classes/Clientes.class.php';
+require_once'classes/Clientes.php';
 
-if(isset($_GET['ordenation'])){
-	$ordenation = $_GET['ordenation'];
-}
-if(isset($_GET['cpf'])){
-	$cpf = $_GET['cpf'];
-}
 
+$cpf        = filter_input(INPUT_GET, 'cpf');
+$ordenation = filter_input(INPUT_GET, 'ordenation');
 
 $layout =<<<EOF
 		<table class="table table-striped table-bordered" style="width:600px; margin:10px auto;">
