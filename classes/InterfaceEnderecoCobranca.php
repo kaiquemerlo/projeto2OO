@@ -1,10 +1,6 @@
 <?php 
 
-interface InterfaceEnderecoCobranca{
-
-	public function getEnderecoCobranca();
-
+interface InterfaceEnderecoCobranca
+{
+    public function getEnderecoCobranca();
 }
-
-
- ?>

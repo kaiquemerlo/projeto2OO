@@ -1,11 +1,6 @@
 <?php 
 
-
-interface PFInterface{
-
-	public function setCpf($cpf);
-
+interface PFInterface
+{
+    public function setCpf($cpf);
 }
-
-
- ?>

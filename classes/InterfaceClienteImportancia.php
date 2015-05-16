@@ -1,11 +1,6 @@
 <?php 
 
-
-interface InterfaceClienteImportancia{
-
-	public function getImportancia();
-
+interface InterfaceClienteImportancia
+{
+    public function getImportancia();
 }
-
-
- ?>
