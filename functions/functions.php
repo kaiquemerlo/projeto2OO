@@ -7,6 +7,10 @@ require_once'classes/Clientes.php';
 $cpf        = filter_input(INPUT_GET, 'cpf');
 $ordenation = filter_input(INPUT_GET, 'ordenation');
 
+$desc = ($ordenation == "DESC") ? 'selected' : '';  
+$asc  = ($ordenation == "ASC") ? 'selected' : '';  
+
+
 $layout =<<<EOF
 		<table class="table table-striped table-bordered" style="width:600px; margin:10px auto;">
 		<thead>
@@ -14,8 +18,8 @@ $layout =<<<EOF
 				<th>
 					<form action="index.php" method="GET">
 						<select name="ordenation">
-							<option>ASC</option>
-							<option>DESC</option>
+							<option {$asc}>ASC</option>
+							<option {$desc}>DESC</option>
 						</select>
 						<button type="submit">OK</button>
 					</form>
@@ -46,11 +50,11 @@ EOF;
 				$layout .= "<tr>";
 
 				if($d->getTipo() == 'Pessoa Física'){
-					$layout .=	"<td> <a href='index.php?cpf={$d->getCpf()}'>{$d->getNome()}</a></td>";
+					$layout .=	"<td> <a href='index.php?cpf={$d->getCpf()}&ordenation={$ordenation}'>{$d->getNome()}</a></td>";
 					$layout .=	"<td> {$d->getTipo()}</td>";
 					$layout .=	"<td> {$d->getImportancia()}</td>";
 				}else{
-					$layout .=	"<td> <a href='index.php?cpf={$d->getCnpj()}'>{$d->getNome()}</a></td>";
+					$layout .=	"<td> <a href='index.php?cpf={$d->getCnpj()}&ordenation={$ordenation}'>{$d->getNome()}</a></td>";
 					$layout .=	"<td> {$d->getTipo()}</td>";
 					$layout .=	"<td> {$d->getImportancia()}</td>";
 				}
