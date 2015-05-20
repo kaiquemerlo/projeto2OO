@@ -2,7 +2,7 @@
 
 namespace MERLODEV\Clientes;
 
-class PJ extends Clientes implements \MERLODEV\Clientes\PJInterface
+class PJ extends Clientes implements PJInterface
 {
     private $cnpj;
 
