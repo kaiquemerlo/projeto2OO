@@ -1,7 +1,6 @@
-<?php 
+<?php
 
-require_once __DIR__ . "/InterfaceClienteImportancia.php";
-require_once __DIR__ . "/InterfaceEnderecoCobranca.php";
+namespace MERLODEV\Clientes;
 
 abstract class Clientes implements InterfaceClienteImportancia, InterfaceEnderecoCobranca
 {

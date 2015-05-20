@@ -1,18 +1,20 @@
 <?php
-require_once'classes/PJ.php';
-require_once'classes/PF.php';
+define('CLASS_DIR', 'src/');
+set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
+spl_autoload_register();
 
-require_once'functions/functions.php';
-$c1 = new PF();
-$c2 = new PJ();
-$c3 = new PJ();
-$c4 = new PF();
-$c5 = new PJ();
-$c6 = new PF();
-$c7 = new PF();
-$c8 = new PJ();
-$c9 = new PJ();
-$c10 = new PF();
+
+require_once'src/MERLODEV/functions/functions.php';
+$c1 = new MERLODEV\Clientes\PF();
+$c2 = new MERLODEV\Clientes\PJ();
+$c3 = new MERLODEV\Clientes\PJ();
+$c4 = new MERLODEV\Clientes\PF();
+$c5 = new MERLODEV\Clientes\PJ();
+$c6 = new MERLODEV\Clientes\PF();
+$c7 = new MERLODEV\Clientes\PF();
+$c8 = new MERLODEV\Clientes\PJ();
+$c9 = new MERLODEV\Clientes\PJ();
+$c10 = new MERLODEV\Clientes\PF();
 
 $c1->setNome('Kaique')
         ->setCpf('44455566615')
@@ -99,7 +101,7 @@ $dados = array($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8, $c9, $c10);
     <head>
         <meta charset="UTF-8">
         <title>Cadastro de clientes</title>
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
     </head>
 
     <body>

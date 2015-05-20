@@ -1,7 +1,6 @@
 <?php 
 
 function makeTable($dados){
-require_once'classes/Clientes.php';
 
 
 $cpf        = filter_input(INPUT_GET, 'cpf');
