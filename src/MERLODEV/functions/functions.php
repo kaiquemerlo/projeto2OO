@@ -2,12 +2,11 @@
 
 function makeTable($dados){
 
-
 $cpf        = filter_input(INPUT_GET, 'cpf');
 $ordenation = filter_input(INPUT_GET, 'ordenation');
 
 $desc = ($ordenation == "DESC") ? 'selected' : '';  
-$asc  = ($ordenation == "ASC") ? 'selected' : '';  
+$asc  = ($ordenation == "ASC") ? 'selected' : '';
 
 
 $layout =<<<EOF
@@ -38,24 +37,24 @@ EOF;
 	if($ordenation){
 		switch ($ordenation){
 			case 'DESC':
-                            krsort($dados);
-                            break;
-                        default:
-                            ksort($dados);
+                krsort($dados);
+                break;
+            default:
+                ksort($dados);
 		}
 	}
 			foreach($dados as $d){
 
 				$layout .= "<tr>";
 
-				if($d->getTipo() == 'Pessoa Física'){
-					$layout .=	"<td> <a href='index.php?cpf={$d->getCpf()}&ordenation={$ordenation}'>{$d->getNome()}</a></td>";
-					$layout .=	"<td> {$d->getTipo()}</td>";
-					$layout .=	"<td> {$d->getImportancia()}</td>";
+				if($d['tipo'] == 'Pessoa Física'){
+					$layout .=	"<td> <a href='index.php?cpf={$d['cpf']}&ordenation={$ordenation}'>{$d['nome']}</a></td>";
+					$layout .=	"<td> {$d['tipo']}</td>";
+					$layout .=	"<td> {$d['importancia']}</td>";
 				}else{
-					$layout .=	"<td> <a href='index.php?cpf={$d->getCnpj()}&ordenation={$ordenation}'>{$d->getNome()}</a></td>";
-					$layout .=	"<td> {$d->getTipo()}</td>";
-					$layout .=	"<td> {$d->getImportancia()}</td>";
+					$layout .=	"<td> <a href='index.php?cpf={$d['cnpj']}&ordenation={$ordenation}'>{$d['nome']}</a></td>";
+					$layout .=	"<td> {$d['tipo']}</td>";
+					$layout .=	"<td> {$d['importancia']}</td>";
 				}
 				$layout .= "</tr>";
 			}
@@ -83,22 +82,22 @@ if($cpf){
 EOF;
 
 	foreach($dados as $d){
-		if( (method_exists($d, 'getCpf') && $d->getCpf() == $cpf) || (method_exists($d, 'getCnpj') && $d->getCnpj() == $cpf)) {
+		if( (isset($d['cpf']) && $d['cpf'] == $cpf) || (isset($d['cnpj']) && $d['cnpj'] == $cpf)) {
 			$layout_details .= "<tr> <td><strong>Nome:</strong></td></tr>";
-			$layout_details .= "<tr> <td>{$d->getNome()}</td></tr>";
+			$layout_details .= "<tr> <td>{$d['nome']}</td></tr>";
 			
-			if(method_exists($d, 'getCpf') ){
+			if(isset($d['cpf'])){
 				$layout_details .= "<tr> <td><strong>CPF:</strong></td></tr>";
-				$layout_details .= "<tr> <td>{$d->getCpf()}</td></tr>";
+				$layout_details .= "<tr> <td>{$d['cpf']}</td></tr>";
 			}else{
 				$layout_details .= "<tr> <td><strong>CNPJ:</strong></td></tr>";
-				$layout_details .= "<tr> <td>{$d->getCnpj()}</td></tr>";
+				$layout_details .= "<tr> <td>{$d['cnpj']}</td></tr>";
 			}
 				$layout_details .= "<tr> <td><strong>Endereço:</strong></td></tr>";
-				$layout_details .= "<tr> <td>{$d->getEndereco()}</td></tr>";
-			if(method_exists($d, 'getEnderecoCobranca') AND !empty($d->getEnderecoCobranca())){
+				$layout_details .= "<tr> <td>{$d['endereco']}</td></tr>";
+			if(isset($d['enderecoCobranca']) AND !empty($d['enderecoCobranca'])){
 				$layout_details .= "<tr> <td><strong>Endereço Cobranca:</strong></td></tr>";
-				$layout_details .= "<tr> <td>{$d->getEnderecoCobranca()}</td></tr>";
+				$layout_details .= "<tr> <td>{$d['enderecoCobranca']}</td></tr>";
 			}
 
 		}
